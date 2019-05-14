@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=8">
+		<title>编辑户籍档案人员</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/reset.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/select_common.css">
+		<script type="text/javascript" src="__JS__/jquery-3.3.1.js"></script>
+		<script src="__STATIC__/layui/layui.js"></script>
+		<script src="__JS__/select_common.js"></script>
+	</head>
+
+	<body>
+		<div id="layui-col-md12">
+			<div class="layui-card">
+				<!--入住人员列表-->
+				<div class="layui-card-body">
+					<div class="box_t">
+						<span class="name">查看入住人员</span>
+					</div>
+					<!--修改入住人员-->
+					<form action="" method="post">
+						<table class="layui-table" lay-filter="demo" lay-even="" lay-skin="row">
+							<thead>
+								<tr>
+									<th lay-data="{field:'User_name',align:'center', sort:true}">姓名</th>
+									<th lay-data="{field:'User_IDcard',align:'center', sort:true}">IDcard</th>
+									<th lay-data="{field:'Dormitory_name',align:'center', sort:true}">宿舍号</th>
+									<th lay-data="{field:'user_nation',align:'center', sort:true}">民族</th>
+									<th lay-data="{field:'caozuo',align:'center'}">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{volist name="User" id="User"}
+								<tr>
+									<td align="center">{$User.User_name}</td>
+									<td align="center">{$User.User_IDcard}</td>
+									<td align="center">{$User.Dormitory_name}</td>
+									<td>{$User.User_nation}</td>
+									<td align="center">
+										<a href="{:url('User/edit',['User_id'=>$User.User_id,'Dormitory_id'=>$User.Dormitory_id])}">编辑</a>
+										<a href="{:url('User/delete',['id' => $User.User_id])}">删除</a>
+									</td>
+								</tr>
+								{/volist}
+							</tbody>
+						</table>
+					</form>
+					<!--修改入住人员-->
+				</div>
+				<!--入住列表-->
+			</div>
+		</div>
+	</body>
+
+</html>

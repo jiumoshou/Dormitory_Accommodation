@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=8">
+		<title>故障日志</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/reset.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/select_common.css">
+		<script type="text/javascript" src="__JS__/jquery-3.3.1.js"></script>
+		<script src="__STATIC__/layui/layui.js"></script>
+		<script src="__JS__/select_common.js"></script>
+	</head>
+
+	<body>
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<!--会议列表-->
+				<div class="layui-card-body">
+					<div class="box_t">
+						<span class="name">管理列表</span>
+					</div>
+					<!--列表-->
+					<form action="" method="post">
+						<table class="layui-table" lay-filter="demo" lay-even="" lay-skin="row">
+							<thead>
+								<tr>
+									<th lay-data="{field:'user_name',align:'center'}">管理人员名称</th>
+									<th lay-data="{field:'id',align:'center', sort:true}">添设时间</th>
+									<th lay-data="{field:'caozuo',align:'center'}">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{volist name="Users" id="User"}
+								<tr>
+									<td>{$User.User_name}</td>
+									<td>{$User.User_time}</td>
+									<td>
+										<a href="{:url('User/delete',['id' => $User.User_id])}">删除</a>
+									</td>
+								</tr>
+								{/volist}
+							</tbody>
+						</table>
+					</form>
+					<!--右边底部-->
+				</div>
+				<!--会议列表-->
+			</div>
+		</div>
+	</body>
+
+</html>

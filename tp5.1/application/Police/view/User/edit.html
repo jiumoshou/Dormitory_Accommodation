@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" >
+<title>编辑户籍档案人员</title>
+<link rel="stylesheet" type="text/css" href="__STATIC__/extra/Assets/css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/extra/Assets/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/extra/Assets/css/thems.css">
+<script type="text/javascript" src="__STATIC__/extra/Assets/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+    	//自适应屏幕宽度
+    	window.onresize=function(){ location=location }; 
+    	
+    	var main_h = $(window).height();
+    	$('.hy_list').css('height',main_h-45+'px');
+    	
+    	var main_w = $(window).width();
+    	$('.xjhy').css('width',main_w-40+'px');
+    	
+    	
+    	$(".tabBox .tabCont:first").css("display","block");
+    	$(".tabBox .tabNav li").click(function(){
+    		$(this).siblings("li").removeClass("now");
+    		$(this).addClass("now");
+    		$(this).parents(".tabBox").find(".tabCont").css("display","none");
+    		var i=$(this).index();
+    		$(this).parents(".tabBox").find(".tabCont:eq("+i+")").css("display","block");
+    	});
+    	
+    	$('.xial_m span').click(function(){
+    		$(this).parent('.xial_m').siblings('.xl_ctn').toggle();
+    	});
+    });
+</script>
+</head>
+
+<body onLoad="Resize();">
+<div id="right_ctn">
+	<div class="right_m">
+		<!--户籍档案人员列表-->
+        <div class="hy_list">
+        	<div class="box_t">
+            	<span class="name">编辑户籍档案人员</span>
+            </div>
+            <div class="space_hx">&nbsp;</div>
+            <!--新建户籍档案人员-->
+            <form action="{:url('User/update',['id' => $User.User_id])}" method="post" enctype="multipart/form-data">
+            <div class="xjhy" style="padding:0px;">
+                <div class="tabBox_t">
+                    <div class="tabBox">
+                      <ul class="tabNav">
+                        <li class="now"><span>编辑户籍档案人员</span></li>
+                      </ul>
+                        <div class="tabCont" style="display:block;">
+                        <!--基本配置-->
+                            <ul class="hypz">
+                                <li class="clearfix">
+                                    <span class="title">户籍档案人员名称：</span>
+                                    <div class="li_r">
+                                        <input class="chang" name="User_name" type="text" value="{$User.User_name}">
+                                        <i>*</i>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="title">户籍档案人员性别：</span>
+                                      <div class="li_r">
+                                          <span class="radio">
+                                              <input required checked="checked"  type="radio" value="男" name="User_sex" {if $User.User_sex eq '男' } checked {/if}>
+                                              <em>男</em>
+                                          </span>
+                                          <span class="radio">
+                                              <input required  type="radio" value="女"  name="User_sex" {if $User.User_sex eq '女' } checked {/if}>
+                                              <em>女</em>
+                                          </span>
+                                      </div>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="title">户籍档案人员身份证号：</span>
+                                    <div class="li_r">
+                                        <input required name="User_IDcard" type="text" value="{$User.User_IDcard}">
+                                        <i>*</i>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="title">户籍档案人员民族：</span>
+                                    <div class="li_r">
+                                        <input required name="User_phone" type="text" value="{$User.User_phone}">
+                                        <i>*</i>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="title">户籍档案人员地址：</span>
+                                    <div class="li_r">
+                                        <input required name="User_email" type="text" value="{$User.User_email}">
+                                        <i>*</i>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="title">户籍档案人员身份证</span>
+                                    <div class="li_r">
+                                        <input type="file" multiple name="User_headimg">
+                                        <input type="text" name="User_rheadimg" value="{$User.User_headimg}">
+                                    </div>
+                                </li>
+                                <li class="tj_btn">
+                                     <input type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success "  value="提交">
+                                </li>
+                            </ul>
+                        <!--基本配置-->
+                        </div>
+                	</div>
+                </div>
+            </div>
+            </form>
+            <!--新建户籍档案人员-->
+        </div>
+        <!--户籍档案人员列表-->
+    </div>
+</div>
+</body>
+</html>

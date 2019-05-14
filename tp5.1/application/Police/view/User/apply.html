@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" >
+<title>故障日志</title>
+<link rel="stylesheet" type="text/css" href="__STATIC__/extra/Assets/css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/extra/Assets/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/extra/Assets/css/thems.css">
+<script type="text/javascript" src="__STATIC__/extra/Assets/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//自适应屏幕宽度
+	window.onresize=function(){ location=location }; 
+	
+	var main_h = $(window).height();
+	$('.hy_list').css('height',main_h-45+'px');
+	
+	var search_w = $(window).width()-40;
+	$('.search').css('width',search_w+'px');
+	$('.list_hy').css('width',search_w+'px');
+	
+	$('.xial_m span').click(function(){
+		$(this).parent('.xial_m').siblings('.xl_ctn').toggle();
+	});
+});
+</script>
+<!--框架高度设置-->
+</head>
+
+<body onLoad="Resize();">
+<div id="right_ctn">
+	<div class="right_m">
+		<!--会议列表-->
+        <div class="hy_list">
+        	<div class="box_t">
+            	<span class="name">户籍更改申请列表</span>
+            </div>
+            <div class="space_hx">&nbsp;</div>
+            <!--列表-->
+            <form action="" method="post">
+            <table cellpadding="0" cellspacing="0" class="list_hy">
+              <tr>
+                <th scope="col" width="270" align="center">户籍更改申请人员名称</th>
+                <th scope="col" align="center">户籍更改申请状态</th>
+                <th scope="col" align="center">户籍更改申请时间</th>
+                <th scope="col" width="365" align="center">操作</th>
+              </tr>
+              {volist name="applys" id="apply"}
+              <tr>
+                <td align="center">{$apply.Apply_user}</td>
+                <td align="center" style="color:{if $apply.Apply_station eq 1} green {elseif $apply.Apply_station eq -1} red {else} #09f {/if}">{if $apply.Apply_station eq 1} 已通过 {elseif $apply.Apply_station eq -1} 已拒绝 {else} 未审批 {/if}</td>
+                 <td align="center">{$apply.Apply_time}</td>
+                <td align="center">
+                    <a href="{:url('User/adit',['id'=>$apply.Apply_id])}">审批</a>
+                </td>
+              </tr>
+              {/volist}
+            </table>
+            <!--列表-->
+            <!--右边底部-->
+            <div class="r_foot">
+            	<div class="r_foot_m">
+                <!--分页-->
+                <div class="page">
+                	<a href="index?page={$Pagelist.pre}" class="prev"><img src="__STATIC__/extra/Assets/images/icon7.png" alt=""/></a>
+                    {volist name='Pagelist.code' id='page'}
+                    <a class="now" href="{$page.url}">{$page.page}</a>
+                    {/volist}
+                    <a href="index?page={$Pagelist.next}" class="next"><img src="__STATIC__/extra/Assets/images/icon8.png" alt=""/></a>
+                </div>
+                <!--分页-->
+                </div>
+            </div>
+            </form>
+            <!--右边底部-->
+        </div>
+        <!--会议列表-->
+    </div>
+</div>
+</body>
+</html>

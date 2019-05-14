@@ -1,0 +1,70 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=8">
+		<title>左边导航</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/reset.css" />
+		<link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
+		<link rel="stylesheet" href="__CSS__/Index/left.css">
+		<!--/<script type="text/javascript" src="__JS__/Admin/jquery-3.1.1.min.js"></script>-->
+	</head>
+
+	<body>
+
+		<ul class="layui-nav layui-nav-tree" lay-filter="test">
+			<li class="layui-nav-item layui-nav-itemed">
+				<a href="javascript:;">宿舍入住办理</a>
+				<dl class="layui-nav-child">
+					<dd>
+						<span><a href="{:url('User/index')}" target="main">入住人员列表</a></span>
+					</dd>
+					<dd>
+						<span><a href="{:url('User/add')}" target="main">添加入住人员</a></span>
+					</dd>
+				</dl>
+			</li>
+
+			<li class="layui-nav-item layui-nav-itemed">
+				<a href="javascript:;">宿舍成员管理</a>
+				<dl class="layui-nav-child">
+					<dd>
+						<a href="{:url('Dormitory/index')}" target="main">宿舍列表</a>
+					</dd>
+					<dd>
+						<a href="{:url('Dormitory/add')}" target="main">添加宿舍</a>
+					</dd>
+				</dl>
+			</li>
+
+			<li class="layui-nav-item layui-nav-itemed">
+				<a href="javascript:;">系统管理</a>
+				<dl class="layui-nav-child">
+					<dd>
+						<a href="{:url('User/rndex')}" target="main">管理员列表</a>
+					</dd>
+					<dd>
+						<a href="{:url('User/radd')}" target="main">新增管理员</a>
+					</dd>
+					<dd>
+						<a href="{:url('Index/loginout')}" target="_top">退出系统</a>
+					</dd>
+				</dl>
+			</li>
+
+		</ul>
+
+		<script src="__STATIC__/layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use('element', function() {
+				var element = layui.element;
+
+				//一些事件监听
+				element.on('tab(demo)', function(data) {
+					console.log(data);
+				});
+			});
+		</script>
+	</body>
+
+</html>

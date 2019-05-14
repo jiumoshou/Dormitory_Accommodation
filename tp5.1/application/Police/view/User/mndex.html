@@ -1,0 +1,89 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" >
+<title>故障日志</title>
+<link rel="stylesheet" type="text/css" href="__STATIC__/extra/Assets/css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/extra/Assets/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/extra/Assets/css/thems.css">
+
+<style type="text/css">
+
+
+.files {
+    background: #fff;width: 700px;
+    height: 315px;
+    
+    margin: 0 auto;
+    margin-top: 100px;position: relative;cursor: pointer;background-size: 700px 315px;background-repeat: no-repeat;}
+.files img {    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 80px;}
+
+
+table tr {text-align: center;padding:10px;}
+table td {text-align: center;padding:10px;}
+table img {width: 100px;}
+</style>
+<!--框架高度设置-->
+</head>
+
+<body>
+<div id="right_ctn">
+    <div class="right_m">
+        <!--会议列表-->
+        <div class="hy_list">
+            <div class="box_t">
+                <span class="name">查找结果</span>
+            </div>
+            <div class="space_hx">&nbsp;</div>
+            <table class="files">
+                <tr>
+                    <td><img {if $userinfo.User_headimg} src="/uploads/users/{$userinfo.User_headimg}" {else} src="\static\images\Common\default.png" {/if}></td>
+                </tr>
+                <tr>
+                    <td>姓名</td>
+                    <td>{$userinfo.User_name}</td>
+                </tr>
+                <tr>
+                    <td>民族</td>
+                    <td>{$userinfo.User_name}</td>
+                </tr>
+                <tr>
+                    <td>地址</td>
+                    <td>{$userinfo.User_email}</td>
+                </tr>
+                <tr>
+                    <td>性别</td>
+                    <td>{if $userinfo.User_sex eq 1} 男 {else} 女 {/if}</td>
+                </tr>
+                <tr>
+                    <td>身份证号</td>
+                    <td>{if $userinfo.User_IDcard}{$userinfo.User_IDcard}{else}未填写{/if}</td>
+                </tr>
+            </table>
+        </div>
+        <a href="{:url('User/mdit')}" style="margin-top: 30px;    display: inline-grid;width: 300px;padding:10px;text-align: center;background: #09f;color:#fff;height: 30px;line-height: 30px;font-size:15px;border-radius: 3px;">申请修改</a>
+        <!--会议列表-->
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="__JS__/Admin/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+$(".hy_list").find("p").click(function(){
+
+	$("form").submit();
+});
+$("#file").change(function () {
+   var obj=$("#file")[0].files[0];
+   var fr=new FileReader();
+   fr.onload=function () {
+       $(".files").css('background',"url("+this.result+")");
+       $(".files").css('background-size',"700px 315px");
+
+};
+fr.readAsDataURL(obj);
+});
+</script>

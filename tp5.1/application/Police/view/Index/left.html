@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" >
+<title>左边导航</title>
+<link rel="stylesheet" type="text/css" href="__STATIC__/extra/Assets/css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/extra/Assets/css/common.css"/>
+<script type="text/javascript" src="__JS__/Admin/jquery-3.1.1.min.js"></script>
+
+</head>
+
+<body>
+<div id="left_ctn">
+    <ul class="sidenav">
+        {if $UserInfo.User_type eq 1}
+        <li class="now">
+            <div class="nav_m">
+                <span><a>我的户籍档案</a></span>
+                <i>&nbsp;</i>
+            </div>
+            <ul class="erji">
+                <li class="now_li">
+                    <span><a href="{:url('User/mndex')}" target="main">查阅户籍档案</a></span>
+                </li>
+                <li>
+                    <span><a href="{:url('User/mdit')}" target="main">修改申请</a></span>
+                </li>
+            </ul>
+        </li>
+        <li  class="now">
+            <div class="nav_m">
+                <span><a>登录账号</a></span>
+                <i>&nbsp;</i>
+            </div>
+            <ul class="erji">
+                <li class="now_li">
+                    <span><a href="{:url('User/alert')}" target="main">修改账户</a></span>
+                </li>
+            </ul>
+        </li>
+        {else}
+        <li  class="now">
+            <div class="nav_m">
+                <span><a>户籍档案管理</a></span>
+                <i>&nbsp;</i>
+            </div>
+            <ul class="erji">
+                <li>
+                    <span><a href="{:url('User/index')}" target="main">户籍档案列表</a></span>
+                </li>
+                <li>
+                    <span><a href="{:url('User/add')}" target="main">添加户籍档案</a></span>
+                </li>
+                <li>
+                    <span><a href="{:url('User/apply')}" target="main">户籍档案审批</a></span>
+                </li>
+            </ul>
+        </li>
+        <li  class="now">
+            <div class="nav_m">
+                <span><a>户籍档案识图</a></span>
+                <i>&nbsp;</i>
+            </div>
+            <ul class="erji">
+                <li class="now_li">
+                    <span><a href="{:url('Work/index')}" target="main">识别户籍档案图像</a></span>
+                </li>
+                <li>
+                    <span><a href="{:url('Work/add')}" target="main">识图增设户籍档案</a></span>
+                </li>
+            </ul>
+        </li>
+        <li class="now">
+            <div class="nav_m">
+                <span><a>系统管理</a></span>
+                <i>&nbsp;</i>
+            </div>
+            <ul class="erji">
+                <li class="now_li">
+                    <span><a href="{:url('User/rndex')}" target="main">管理员列表</a></span>
+                </li>
+                <li>
+                    <span><a href="{:url('User/radd')}" target="main">新增管理员</a></span>
+                </li>
+                <li>
+                    <span><a href="{:url('User/alert')}" target="main">修改个人信息</a></span>
+                </li>
+            </ul>
+        </li>
+        {/if}
+        <li>
+            <div class="nav_m">
+                <span><a href="{:url('Index/loginout')}" target="_top">退出系统</a></span>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

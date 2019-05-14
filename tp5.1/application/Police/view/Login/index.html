@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>公安电子户籍管理系统</title>
+<!-- For-Mobile-Apps-and-Meta-Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps-and-Meta-Tags -->
+
+<link href="__CSS__/Admin/login.css" type="text/css" rel="stylesheet" media="all">
+<link href="__CSS__/Admin/jquerysctipttop.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>公安电子户籍管理系统</h1>
+<section>
+  <div class="controls w3l">
+    <div class="clear"></div>
+  </div>
+  <div class="stage">
+    <div class="cbImage active signin agileits">
+		<h3>登录</h3>
+		<form action="{:url('Login/login')}" method="post">
+			<input type="text" name="username" class="name" placeholder="用户名">
+			<input type="password" name="password" class="password" placeholder="密码" autocomplete="off">
+			<p style="overflow: hidden;margin-bottom: 10px;cursor: pointer;height: 50px;">
+				<label for="stu">普通用户:</label><input type="radio" name="option" class="password" checked value="1" id="stu">
+				<label for="tea">管理人员:</label><input type="radio" name="option" class="password" value="0" id="tea">
+			</p>
+			<input type="submit" value="立即登录">
+		</form>
+	</div>
+    <div class="cbImage agileinfo">
+		<h3>用户注册</h3>
+		<form action="{:url('Login/register')}" method="post">
+			<input type="text" class="name" name="username" placeholder="用户名" autocomplete="off">
+			<input type="password" class="password" name="password" placeholder="密码" autocomplete="off">
+			<input type="password" class="password" name="repassword" placeholder="重复密码" autocomplete="off">
+			<input type="text" class="email" name="email" placeholder="用户邮箱" autocomplete="off">
+			<input type="password" class="email" name="id" placeholder="管理员通行密码" autocomplete="off">
+			<p style="overflow: hidden;cursor: pointer;height: 35px;">
+				<label for="stu">普通用户:</label><input type="radio" name="option" class="password" checked value="1" id="stu">
+				<label for="tea">管理人员:</label><input type="radio" name="option" class="password" value="0" id="tea">
+			</p>
+			<input type="submit" value="立即注册">
+		</form>
+	</div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <div class="footer">
+  <p>&copy; 2018 Sliding Forms Widget. All Rights Reserved</p>
+  </div>
+</section>
+<script src="__JS__/Admin/jquery-3.1.1.min.js"></script> 
+<script src="__JS__/Admin/coverflow-slideshow.js"></script>
+</body>
+</html>

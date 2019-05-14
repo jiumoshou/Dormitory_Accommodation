@@ -1,0 +1,60 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=8">
+		<title>宿舍列表</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/reset.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/select_common.css">
+		<script type="text/javascript" src="__JS__/jquery-3.3.1.js"></script>
+		<script src="__STATIC__/layui/layui.js"></script>
+		<script src="__JS__/select_common.js"></script>
+	</head>
+
+	<body>
+		<div id="layui-col-md12">
+			<div class="layui-card">
+				<!--会议列表-->
+				<div class="layui-card-body">
+					<div class="box_t">
+						<span class="name">宿舍列表</span>
+					</div>
+					<!--列表-->
+					<form action="" method="post">
+						<table class="layui-table" lay-filter="demo" lay-even="" lay-skin="row">
+							<thead>
+								<tr>
+									<th lay-data="{field:'Dormitory_name',align:'center', sort:true}">宿舍号</th>
+									<th lay-data="{field:'Dormitory_oc',align:'center', sort:true}">已住人数</th>
+									<th lay-data="{field:'Dormitory_few',align:'center', sort:true}">少数名族人数</th>
+									<th lay-data="{field:'Dormitory_sex',align:'center'}">宿舍类别</th>
+									<th lay-data="{field:'caozuo',align:'center',minWidth:180}">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{volist name="Dormitory" id="Dormitory"}
+								<tr>
+									<td align="center">{$Dormitory.Dormitory_name}</td>
+									<td align="center">{$Dormitory.Dormitory_oc}</td>
+									<td align="center">{$Dormitory.Dormitory_few}</td>
+									<td align="center">{$Dormitory.Dormitory_sex}</td>
+									<td align="center">
+										<a href="{:url('Check/index',['id'=>$Dormitory.Dormitory_id])}">查看入住人员</a>
+										<a href="{:url('Dormitory/edit',['id'=>$Dormitory.Dormitory_id])}">编辑</a>
+										<a href="{:url('Dormitory/delete',['id' => $Dormitory.Dormitory_id])}">删除</a>
+									</td>
+								</tr>
+								{/volist}
+							</tbody>
+						</table>
+						<!--列表-->
+					</form>
+					<!--右边底部-->
+				</div>
+				<!--会议列表-->
+			</div>
+		</div>
+	</body>
+
+</html>

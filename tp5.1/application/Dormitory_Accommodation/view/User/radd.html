@@ -1,0 +1,61 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=8">
+		<title>添加管理员</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/reset.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/edit_common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/user/add.css" />
+		<script type="text/javascript" src="__JS__/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="__STATIC__/layui/layui.js"></script>
+		<script type="text/javascript" src="__JS__/edit_common.js"></script>
+	</head>
+
+	<body ">
+	<div class="layui-fluid ">
+			<div class="layui-card ">
+				<div class="layui-card-header ">新增管理员</div>
+				<div class="layui-card-body ">
+					<form action="{:url( 'User/rinsert')} " class="layui-form " lay-filter="component-form-group " method="post ">
+
+						<div class="layui-form-item ">
+							<label class="layui-form-label ">账号：</label>
+							<div class="layui-input-block ">
+								<input required name="User_name" class="layui-input " type="text " lay-verify="required " autocomplete="off " placeholder="请输入标题 ">
+							</div>
+						</div>
+						
+						<div class="layui-form-item ">
+							<label class="layui-form-label ">密码：</label>
+							<div class="layui-input-block ">
+								<input required name="User_psd" class="layui-input " type="password " lay-verify="required " autocomplete="off " placeholder="请输入标题 ">
+							</div>
+						</div>
+						
+						<div class="layui-form-item ">
+							<label class="layui-form-label ">确认密码：</label>
+							<div class="layui-input-block ">
+								<input required name="User_rpsd" class="layui-input " type="password " lay-verify="required " autocomplete="off " placeholder="请输入标题 ">
+							</div>
+						</div>
+
+						<div class="layui-form-item layui-layout-admin ">
+							<div class="layui-input-block ">
+								<div class="layui-footer " style="left: 0; ">
+									<!--<input required type="submit " class="am-btn am-btn-primary tpl-btn-bg-color-success " value="提交 ">-->
+									<button class="layui-btn " lay-submit="LAY-user-login-submit " lay-filter="component-form-demo1 ">立即提交</button>
+									<button type="reset " class="layui-btn layui-btn-primary ">重置</button>
+								</div>
+							</div>
+						</div>
+
+					</form>
+					<!--新建入住人员-->
+				</div>
+				<!--入住人员列表-->
+			</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=8">
+		<title>编辑户籍档案人员</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/reset.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/edit_common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/user/add.css" />
+		<script type="text/javascript" src="__JS__/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="__STATIC__/layui/layui.js"></script>
+		<script type="text/javascript" src="__JS__/edit_common.js"></script>
+	</head>
+
+	<body>
+		<div class="layui-fluid ">
+			<div class="layui-card ">
+				<div class="layui-card-header">编辑入住人员</div>
+				<div class="layui-card-body">
+					<form action="{:url('User/update',['id' => $User.User_id])}" class="layui-form " lay-filter="component-form-group" method="post ">
+						<div class="layui-form-item ">
+							<label class="layui-form-label ">姓名：</label>
+							<div class="layui-input-block ">
+								<input required name="User_name" class="layui-input " type="text " value="{$User.User_name}" lay-verify="required " autocomplete="off " placeholder="请输入标题 ">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">性别：</label>
+							<div class="layui-input-block">
+								<input type="radio" name="User_sex" lay-filter="User_sex" value="男" title="男" {if $User.User_sex eq '男' } checked {/if}>
+								<input type="radio" name="User_sex" lay-filter="User_sex" value="女" title="女" {if $User.User_sex eq '女' } checked {/if}>
+							</div>
+						</div>
+						<div class="layui-form-item ">
+							<label class="layui-form-label ">IDcard：</label>
+							<div class="layui-input-block ">
+								<input required name="User_IDcard" class="layui-input " value="{$User.User_IDcard}" type="text " lay-verify="required " autocomplete="off " placeholder="请输入标题 ">
+							</div>
+						</div>
+						<div class="layui-form-item ">
+							<label class="layui-form-label ">民族：</label>
+							<div class="layui-input-block ">
+								<select id="User_nation" lay-filter="User_nation" required name="User_nation" lay-verify="required ">
+									<option value="{$User.User_nation}">{$User.User_nation}</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">宿舍号：</label>
+							<div class="layui-input-block" id="select_div">
+								<select id="my_select_select" lay-filter="sushehao">
+								</select>
+								<input required name="Dormitory_name" class="layui-input" id="my_select_text" value="{$User.Dormitory_name}" type="text " lay-verify="required " autocomplete="off " placeholder="请输入标题 ">
+								<input required name="Dormitory_id" class="layui-input " value="{$User.Dormitory_old_id}" id="Dormitory_id" type="hidden" lay-verify="required " autocomplete="off " placeholder="请输入标题 ">
+							</div>
+						</div>
+						<div class="layui-form-item layui-layout-admin ">
+							<div class="layui-input-block ">
+								<div class="layui-footer " style="left: 0; ">
+									<!--<input required type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success " value="提交 ">-->
+									<button class="layui-btn" lay-submit="LAY-user-login-submit" lay-filter="component-form-demo1 ">立即提交</button>
+									<button type="reset" class="layui-btn layui-btn-primary ">重置</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
